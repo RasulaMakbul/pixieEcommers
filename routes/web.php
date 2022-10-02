@@ -32,13 +32,15 @@ Route::get('/error', [AdminController::class, 'error']);
 Route::get('/dashboard', [AdminController::class, 'dashboard']);
 
 
-Route::get('/productList', [AdminProductController::class, 'productList']);
+Route::get('/productList', [AdminProductController::class, 'productList'])->name('products.allProducts');
+Route::get('/productView/{id}', [AdminProductController::class, 'productView'])->name('products.show');
+Route::get('/product/{id}/delete', [AdminProductController::class, 'destroy'])->name('products.destroy');
 Route::get('/productEdit', [AdminProductController::class, 'productEdit']);
-Route::get('/productAdd', [AdminProductController::class, 'productAdd']);
-Route::get('/productView', [AdminProductController::class, 'productView']);
+Route::get('/product/create', [AdminProductController::class, 'productAdd'])->name('products.create');
 
 
-Route::get('/categoryList', [AdminCategoryController::class, 'categoryList']);
+
+Route::get('/categoryList', [AdminCategoryController::class, 'categoryList'])->name('categories.allCategories');
 Route::get('/categoryView', [AdminCategoryController::class, 'categoryView']);
 Route::get('/categoryEdit', [AdminCategoryController::class, 'categoryEdit']);
 Route::get('/categoryAdd', [AdminCategoryController::class, 'categoryAdd']);

@@ -67,14 +67,14 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="{{url('categoryList')}}">
+                            <a class="nav-link active" aria-current="page" href="{{route('categories.allCategories')}}">
                                 <span data-feather="list"></span>
                                 Category
                             </a>
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link" href="{{url('productList')}}">
+                            <a class="nav-link" href="{{route('products.allProducts')}}">
                                 <span data-feather="layers"></span>
                                 Products
                             </a>
