@@ -2,13 +2,13 @@
         <x-slot:title>
             Edit Product
         </x-slot:title>
-        <form>
-
-            <h1>Edit Product</h1>
-            <form class="form-light bg-light">
+        <form action="{{route('products.update')}}" method="POST">
+            @csrf
+            <h1>Add Product</h1>
+            <form class="form-light">
                 <div class="form-group col-8 m-3">
                     <label for="exampleFormControlInput1">Product Name</label>
-                    <input type="text" class="form-control bg-light mt-2" id="exampleFormControlInput1" placeholder="Product Name">
+                    <input type="text" name="productName" class="form-control mt-2" id="exampleFormControlInput1" placeholder="Product Name" value="{{ $data->productName}}">
 
                 </div>
                 <select class="btn btn-light dropdown-toggle col-8 m-3" name="categoryName">
@@ -23,11 +23,11 @@
                 <div class="col-8 d-flex">
                     <div class="form-group col-6 m-3">
                         <label for="exampleFormControlInput1">Unit Price</label>
-                        <input type="text" class="form-control bg-light mt-2" id="exampleFormControlInput1" placeholder="Unit Price">
+                        <input type="text" name="unitPrice" class="form-control mt-2" id="exampleFormControlInput1" placeholder="Unit Price">
                     </div>
                     <div class="form-group col-5 m-3">
                         <label for="exampleFormControlInput1">Stock</label>
-                        <input type="text" class="form-control bg-light mt-2" id="exampleFormControlInput1" placeholder="Stock">
+                        <input type="text" name="stock" class="form-control mt-2" id="exampleFormControlInput1" placeholder="Stock">
                     </div>
                 </div>
 
@@ -35,7 +35,7 @@
 
                 <div class="form-group col-8 m-3">
                     <div class="form-group form-check">
-                        <input type="checkbox" class="form-check-input bg-light" id="exampleCheck1">
+                        <input type="checkbox" name="visibility" class="form-check-input bg-light" id="exampleCheck1">
                         <label class="form-check-label" for="exampleCheck1">Visible</label>
                     </div>
                 </div>
@@ -43,10 +43,10 @@
 
                 <div class="form-group col-8 m-3">
                     <label for="exampleFormControlTextarea1">Description</label>
-                    <textarea class="form-control bg-light mt-2" id="exampleFormControlTextarea1" rows="3"></textarea>
+                    <textarea class="form-control mt-2" name="description" id="exampleFormControlTextarea1" rows="3"></textarea>
                 </div>
                 <div class="form-group col-8 m-3 mb-5">
-                    <button type="button" class="btn btn-outline-info  m-3">Save</button>
+                    <button type="submit" class="btn btn-outline-info  m-3">Save</button>
                     <a type="button" href="{{url('productList')}}" class="btn btn-outline-secondary">Back</a>
                 </div>
 

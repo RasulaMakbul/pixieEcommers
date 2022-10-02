@@ -14,6 +14,42 @@ class AdminProductController extends Controller
             'data' => $products
         ]);
     }
+    public function productAdd()
+    {
+        return View('admin.productAdd');
+    }
+
+    public function storeProducts(Request $request)
+    {
+        Product::create([
+            'productName' => $request->productName,
+            'categoryName' => $request->categoryName,
+            'unitPrice' => $request->unitPrice,
+            'stock' => $request->stock,
+            'visibility' => $request->visibility ? true : false,
+            'description' => $request->description
+        ]);
+        return redirect(route('products.allProducts'));
+    }
+
+    public function ProductEdit($id)
+    {
+        $product = Product::find($id);
+        return view('admin.productEdit');
+    }
+    public function productUpdate(Request $request)
+    {
+        $requestData = [
+            'productName' => $request->productName,
+            'categoryName' => $request->categoryName,
+            'unitPrice' => $request->unitPrice,
+            'stock' => $request->stock,
+            'visibility' => $request->visibility ? true : false,
+            'description' => $request->description
+        ];
+        return redirect(route('products.allProducts'));
+    }
+
     public function productView($id)
     {
         $singleProduct = Product::find($id);
@@ -24,15 +60,5 @@ class AdminProductController extends Controller
         $singleProduct = Product::find($id);
         $singleProduct->delete();
         return redirect()->route('products.allProducts');
-    }
-
-    public function productAdd()
-    {
-        return View('admin.productAdd');
-    }
-
-    public function productEdit()
-    {
-        return View('admin.productEdit');
     }
 }

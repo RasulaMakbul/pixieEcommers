@@ -4,6 +4,7 @@ use App\Http\Controllers\AdminCategoryController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AdminProductController;
+use App\Http\Controllers\OrderController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -33,10 +34,13 @@ Route::get('/dashboard', [AdminController::class, 'dashboard']);
 
 
 Route::get('/productList', [AdminProductController::class, 'productList'])->name('products.allProducts');
+Route::get('/product/create', [AdminProductController::class, 'productAdd'])->name('products.create');
+Route::post('/product/store', [AdminProductController::class, 'storeProducts'])->name('products.store');
 Route::get('/productView/{id}', [AdminProductController::class, 'productView'])->name('products.show');
 Route::get('/product/{id}/delete', [AdminProductController::class, 'destroy'])->name('products.destroy');
-Route::get('/productEdit', [AdminProductController::class, 'productEdit']);
-Route::get('/product/create', [AdminProductController::class, 'productAdd'])->name('products.create');
+Route::get('/productEdit/{id}', [AdminProductController::class, 'productEdit'])->name('products.edit');
+Route::post('/productEdit', [AdminProductController::class, 'productUpdate'])->name('products.update');
+
 
 
 
@@ -48,3 +52,9 @@ Route::get('/categoryAdd', [AdminCategoryController::class, 'categoryAdd']);
 
 Route::get('/userList', [AdminController::class, 'userList']);
 Route::get('/userView', [AdminController::class, 'userView']);
+
+
+
+Route::get('orderAdd', [OrderController::class, 'orderAdd'])->name('orders.orderAdd');
+Route::post('order/store', [OrderController::class, 'storeOrder'])->name('orders.storeOrder');
+Route::get('orderList', [OrderController::class, 'orderList'])->name('orders.allOrder');

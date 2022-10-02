@@ -41,7 +41,7 @@
 
                     <td>
                         <a href="{{route('products.show',$products->id)}}" class="link-success"><i class="fa-solid fa-eye fs-5 me-3"></i></a>
-                        <a href="{{url('productEdit')}}" class="link-info"><i class="fa-solid fa-pen-to-square fs-5 me-3"></i></a>
+                        <a href="{{route('products.update',$products->id)}}" class="link-info"><i class="fa-solid fa-pen-to-square fs-5 me-3"></i></a>
                         <a href="{{route('products.destroy',$products->id)}}" class="link-danger"><i class="fa-solid fa-trash fs-5"></i></a>
                     </td>
                 </tr>
