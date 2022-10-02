@@ -57,4 +57,7 @@ Route::get('/userView', [AdminController::class, 'userView']);
 
 Route::get('orderAdd', [OrderController::class, 'orderAdd'])->name('orders.orderAdd');
 Route::post('order/store', [OrderController::class, 'storeOrder'])->name('orders.storeOrder');
+Route::get('order/{id}/delete', [OrderController::class, 'destroy'])->name('orders.delete');
 Route::get('orderList', [OrderController::class, 'orderList'])->name('orders.allOrder');
+Route::get('orderEdit/{id}', [OrderController::class, 'orderEdit'])->name('orders.edit');
+Route::patch('order/update', [OrderController::class, 'update'])->name('orders.update');

@@ -42,9 +42,9 @@
                         <td>{{ $order->deliveryDate }}</td>
                         <td>{{ $order->status }}</td>
                         <td>
-                            <a href="{{url('categoryView')}}" class="link-success"><i class="fa-solid fa-eye fs-5 me-3"></i></a>
-                            <a href="{{url('categoryEdit')}}" class="link-info"><i class="fa-solid fa-pen-to-square fs-5 me-3"></i></a>
-                            <a href="#" class="link-danger"><i class="fa-solid fa-trash fs-5"></i></a>
+                            <a href="{{route('orders.allOrder')}}" class="link-success"><i class="fa-solid fa-eye fs-5 me-3"></i></a>
+                            <a href="{{route('orders.edit',$order->id)}}" class="link-info"><i class="fa-solid fa-pen-to-square fs-5 me-3"></i></a>
+                            <a href="{{route('orders.delete',$order->id)}}" class="link-danger"><i class="fa-solid fa-trash fs-5"></i></a>
                         </td>
                     </tr>
                     @endforeach
