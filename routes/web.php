@@ -60,4 +60,4 @@ Route::post('order/store', [OrderController::class, 'storeOrder'])->name('orders
 Route::get('order/{id}/delete', [OrderController::class, 'destroy'])->name('orders.delete');
 Route::get('orderList', [OrderController::class, 'orderList'])->name('orders.allOrder');
 Route::get('orderEdit/{id}', [OrderController::class, 'orderEdit'])->name('orders.edit');
-Route::patch('order/update', [OrderController::class, 'update'])->name('orders.update');
+Route::patch('order/update/{id}', [OrderController::class, 'update'])->name('orders.update');

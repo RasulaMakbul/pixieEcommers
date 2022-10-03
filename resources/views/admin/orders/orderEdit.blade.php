@@ -2,8 +2,18 @@
         <x-slot:title>
             Edit Order
         </x-slot:title>
-        <form action="{{route('orders.update')}}" method="patch">
+        @if ($errors->any())
+        <div class="alert alert-danger">
+            <ul>
+                @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+        @endif
+        <form action="{{route('orders.update', $orders->id)}}" method="POST">
             @csrf
+            @method('patch')
             <h1>Edit Order</h1>
             <form class="form-light">
                 <div class="form-group col-8 m-3">

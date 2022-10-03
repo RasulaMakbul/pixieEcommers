@@ -7,13 +7,13 @@ use Illuminate\Http\Request;
 
 class AdminCategoryController extends Controller
 {
-    public function categoryList()
-    {
-        $categories = Category::all();
-        return View('admin.categoryList', [
-            'category' => $categories
-        ]);
-    }
+    // public function categoryList()
+    // {
+    //     $categories = Category::all();
+    //     return View('admin.categoryList', [
+    //         'category' => $categories
+    //     ]);
+    // }
     public function categoryView()
     {
         return View('admin.categoryView');

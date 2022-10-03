@@ -2,6 +2,15 @@
         <x-slot:title>
             Add Order
         </x-slot:title>
+        @if ($errors->any())
+        <div class="alert alert-danger">
+            <ul>
+                @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+        @endif
         <form action="{{route('orders.storeOrder')}}" method="POST">
             @csrf
             <h1>Add Order</h1>

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\OrderRequest;
 use App\Models\Order;
 use Illuminate\Http\Request;
 
@@ -19,7 +20,7 @@ class OrderController extends Controller
         return View('admin.orders.orderAdd');
     }
 
-    public function storeOrder(Request $request)
+    public function storeOrder(OrderRequest $request)
     {
         Order::create([
             'productName' => $request->productName,
@@ -44,7 +45,7 @@ class OrderController extends Controller
         $orders = Order::find($id);
         return view('admin.orders.orderEdit', compact('orders'));
     }
-    public function update(Request $request, $id)
+    public function update(OrderRequest $request, $id)
     {
         $requestData = [
             'productName' => $request->productName,
